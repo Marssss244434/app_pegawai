@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('attendance', function (Blueprint $table) {
@@ -19,20 +16,17 @@ return new class extends Migration
             $table->time('waktu_keluar')->nullable();
             $table->enum('status_absensi', ['hadir', 'izin', 'sakit', 'alpha']);
             $table->timestamps();
+
             // Foreign key constraint
             $table->foreign('karyawan_id')
-            ->references('id')
-            ->on('emploees')
-            ->onDelete('cascade');
-
-});
+                ->references('id')
+                ->on('emploee')
+                ->onDelete('cascade');
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('attedance');
+        Schema::dropIfExists('attendance');
     }
 };

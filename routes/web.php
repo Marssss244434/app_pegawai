@@ -1,10 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmploeeController; // 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\positionsController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\SalariesController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('employees',EmploeeController::class);
+Route::resource('employees', EmployeeController::class);
+Route::resource('departments', DepartmentsController::class);
+Route::resource('positions', positionsController::class);
+Route::resource('attendance', AttendanceController::class);
+Route::resource('salaries', SalariesController::class);

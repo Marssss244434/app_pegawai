@@ -20,13 +20,13 @@ return new class extends Migration
             $table->decimal('potongan', 10, 2)->default(0);
             $table->decimal('total_gaji', 10, 2);
             $table->timestamps();
-            // Relasi ke tabel employees
-            $table->foreign('karyawan_id')
-            ->references('id')
-            ->on('emploees')
-            ->onDelete('cascade');
 
-            });
+            // Relasi ke tabel emploees (sesuai kamu)
+            $table->foreign('karyawan_id')
+                ->references('id')
+                ->on('emploees')
+                ->onDelete('cascade');
+        });
     }
 
     /**
